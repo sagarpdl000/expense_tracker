@@ -1,12 +1,53 @@
 import React from 'react'
-import ExpenseItem from './components/ExpenseItem'
+import Expenses from './components/Expenses'
 
-function App() {
+
+const App = () => {
+
+       // ---> for single data
+  // let ExpenseDate = new Date (2023,7,27);
+  // let ExpenseTitle = "Car Insurancee";
+  // let ExpenseAmount = 500;
+
+    let expense = [
+        {
+          id: 'e1',
+          date: new Date(2023, 7, 21),
+          title: 'Car Insurence',
+          amount: 600
+        },
+        {
+          id: 'e2',
+          date: new Date(2023, 7, 24),
+          title: 'College fee',
+          amount: 6000
+        },
+        {
+          id: 'e3',
+          date: new Date(2023, 7, 28),
+          title: 'Car EMI',
+          amount: 850
+        }
+    ]
+
+
+
   return (
     <div>
     <h1>Expense tracker project</h1>
-    <ExpenseItem/>
+    
+
+    <Expenses item={expense}/>
+
+
+
+
+
+
+
+
     </div>
+
   )
 }
 
