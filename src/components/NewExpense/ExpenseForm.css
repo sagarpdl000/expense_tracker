@@ -1,4 +1,4 @@
-.new-expemse__controls{
+.new-expense__controls{
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
@@ -6,13 +6,13 @@
     text-align: left;
 }
 
-.new-expemse__controls label{
+.new-expense__controls label{
     font-weight: bold;
     margin-bottom: 0.5rem;
     display: block;
 }
 
-.new-expemse__controls input{
+.new-expense__controls input{
     font: inherit;
     padding: 0.5rem;
     border-radius: 6px;
@@ -22,6 +22,6 @@
 
 }
 
-.new-expemse__action{
+.new-expense__action{
     text-align: right;
 }
