@@ -1,27 +1,8 @@
-import React , {useState} from 'react'
+import React , {useState , useEffect} from 'react'
 import Expenses from './components/Expenses'
 import NewExpense from './components/NewExpense/NewExpense'
 
-let Dummy_Expense = [
-  {
-    id: 'e1',
-    date: new Date(2023, 7, 21),
-    title: 'Car Insurence',
-    amount: 600
-  },
-  {
-    id: 'e2',
-    date: new Date(2023, 7, 24),
-    title: 'College fee',
-    amount: 6000
-  },
-  {
-    id: 'e3',
-    date: new Date(2023, 7, 28),
-    title: 'Car EMI',
-    amount: 850
-  }
-];
+let Dummy_Expense = [];
 
 
 
@@ -29,7 +10,29 @@ const App = () => {
 
   const[expenses, setExpenses]= useState(Dummy_Expense);
 
+
+ function fetchData(){
   
+  fetch ('https://fakestoreapi.com/products?limit=5').then(
+    response => {
+      return response.json();
+    }
+  ).then(
+    data => {
+      // console.log(data);
+      setExpenses(data);
+    }
+  );
+
+ }
+
+  useEffect(()=>{
+
+    fetchData();
+
+ 
+
+},[]);
   
 
 
@@ -40,9 +43,26 @@ const App = () => {
 
    
     const addExpenseHandler =(expense)=>{
-      const updatedExpense =[expense, ...expenses]
 
-      setExpenses(updatedExpense);
+
+      fetch('https://fakestoreapi.com/products/5',{
+        method: 'POST',
+        body: JSON.stringify(expense),
+        headers : {
+          'content-Type' : 'application/json'
+        }
+      }).then(
+        response =>{
+
+          fetchData();
+
+        }
+      );
+
+
+
+
+
 
     }
 

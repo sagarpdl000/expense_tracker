@@ -1,6 +1,6 @@
 import React from 'react'
 import '../style/ExpenseItem.css'
-import ExpenseDate from './ExpenseDate';
+
 
 
 const ExpenseItem = (props) => {
@@ -15,7 +15,7 @@ const ExpenseItem = (props) => {
 
     <div className="expense-item">
         
-        <ExpenseDate date={props.date}/>
+        {/* <ExpenseDate date={props.date}/> */}
       
         <div className="expense-item__description">
             <h2>{props.title}</h2>
